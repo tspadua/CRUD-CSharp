@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CRUD.Models.Region>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Characters</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Character" asp-action="Create" class="btn btn-primary">Create New Character</a>
+            <a asp-controller="Region" asp-action="Create" class="btn btn-primary">Create New Region</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Region Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var region in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => region.Name)
+                        </td>
+                        <td>
+                            <a asp-page="/Index" asp-route-id="@region.Id">Edit</a> |
+                            <a asp-page="/Index" asp-route-id="@region.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
