@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CRUD.Models.Character>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Characters</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Character" asp-action="Create" class="btn btn-primary">Create New Character</a>
+            <a asp-controller="Region" asp-action="Create" class="btn btn-primary">Create New Region</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Character Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Whereabouts
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var character in Model)
+                {
+                    <tr>
+                        <td width="25%">
+                            @character.Name
+                        </td>
+                        <td width="25%">
+                            @character.Description
+                        </td>
+                        <td width="25%">
+                            @character.Region.Name
+                        </td>
+                        <td width="4%">
+                            <div class="w-100 btn-group" role="group">
+                                <div>
+                                    <a asp-controller="Character" asp-action="Update" asp-route-Id="@character.Id" class="btn btn-primary mx-1">Update</a>
+                                </div>
+
+                                <div>
+                                    <form  asp-controller="Character" asp-action="Delete" asp-route-Id="@character.Id">
+                                        <button type="submit" class="btn btn-danger mx-1">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No characters created yet</p>
+    }
+
+</div>

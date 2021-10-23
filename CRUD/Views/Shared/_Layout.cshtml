@@ -19,10 +19,10 @@
                             <a class="nav-link"  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-area="" asp-controller="Character" asp-action="Index">Characters</a>
+                            <a id="characters-nav-link" class="nav-link"  asp-area="" asp-controller="Character" asp-action="Index">Characters</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-area="" asp-controller="Region" asp-action="Index">Regions</a>
+                            <a class="nav-link regions"  asp-area="" asp-controller="Region" asp-action="Index">Regions</a>
                         </li>
                     </ul>
                 </nav>
@@ -47,3 +47,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

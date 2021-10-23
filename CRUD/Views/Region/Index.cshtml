@@ -3,21 +3,21 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Regions</h2>
+            <h2 style="color: #FB4B4E">Regions</h2>
         </div>
         <div class="col-6">
-            <a asp-controller="Character" asp-action="Create" class="btn btn-primary">Create New Character</a>
-            <a asp-controller="Region" asp-action="Create" class="btn btn-primary">Create New Region</a>
+            <a asp-controller="Character" asp-action="Create" class="btn btn-danger">Create New Character</a>
+            <a asp-controller="Region" asp-action="Create" class="btn btn-danger">Create New Region</a>
         </div>
     </div>
     <br />
 
     @if (Model.Count() > 0)
     {
-        <table class="table table-bordered table-striped" style="width:100%">
+        <table class="table table-bordered table-striped" style="width: 100%; border-collapse: collapse;">
             <thead>
                 <tr>
-                    <th>
+                    <th class=text-white style="background: #6D2E46">
                         Region Name
                     </th>
                 </tr>
@@ -26,8 +26,8 @@
                 @foreach (var region in Model)
                 {
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => region.Name)
+                        <td width="25%" class="text-white">
+                            @region.Name
                         </td>
                     </tr>
                 }

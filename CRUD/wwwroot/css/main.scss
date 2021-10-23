@@ -2,6 +2,7 @@
 
 $highlight-color: #FB4B4E;
 $highcontrast-color: #ECECEC;
+$secondary-color: #6D2E46;
 
 :root {
     --primary-color: $highlight-color;
@@ -16,15 +17,19 @@ body {
 
 .navbar {
     background: #40283A;
-    padding: 1em;
+    padding: 0 1em 0 1em;
+    border-bottom: 10px solid $secondary-color;
+    max-width: 100%;
 
     .logo {
         text-decoration: none;
         font-weight: bold;
         color: $highcontrast-color;
-        font-size: 3em;
+        font-size: 3rem;
+        margin-right: 20vw;
 
         span {
+            font-size: 3.5rem;
             color: $highlight-color;
         }
     }
@@ -32,27 +37,29 @@ body {
     ul {
         display: flex;
         list-style-type: none;
+        margin-right: 0.5em;
 
         li {
             a {
                 color: #ECECEC;
             }
 
-            a:current {
-                text-decoration: overline;
-                text-decoration-color: $highlight-color;
+            a:hover {
+                color: $highlight-color;
             }
         }
     }
 
     a {
         color: black;
-        font-size: 1em;
+        font-size: 1.5em;
         padding: .1em 1em;
     }
 
     .container {
         display: flex;
         place-content: space-between;
+        max-width: 100%;
+        margin: 0;
     }
 }
