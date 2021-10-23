@@ -1,9 +1,10 @@
 ﻿@model CRUD.Models.CharacterViewModel
 
-<form method="post" asp-action="Create">
+<form method="post" asp-action="Update">
+    <input asp-for="Character.Id" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Add Character</h2>
+            <h2 class="text-black-50 pl-3">Update Character</h2>
         </div>
         <div class="row">
             <div class="col-12">
@@ -23,19 +24,27 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-3">
-                        <input type="text" asp-for="Character.Name" id="charname" class="form-control">
+                        <input type="text" asp-for="Character.Name" value="@Model.Character.Name" id="charname" class="form-control">
                     </div>
                     <div class="col-3">
-                        <input type="text" asp-for="Character.Description" id="chardescription" class="form-control">
+                        <input type="text" asp-for="Character.Description" value="@Model.Character.Description" id="chardescription" class="form-control">
                     </div>
                     <div class="col-3">
-                        <input type="text" asp-for="Character.Image" id="charimage" class="form-control">
+                        <input type="text" asp-for="Character.Image" value="@Model.Character.Image" id="charimage" class="form-control">
                     </div>
                     <div class="col-3">
                         <select id="regions" asp-for="Character.RegionId" class="form-control">
                             @foreach (var region in Model.Regions)
                             {
-                                <option text="@region.Name" value="@region.Id">@region.Name</option>
+                                @if (@region.Id == Model.Character.RegionId)
+                                {
+                                    <option selected text="@region.Name" value="@region.Id">@region.Name</option>
+                                }
+                                else
+                                {
+                                    <option text="@region.Name" value="@region.Id">@region.Name</option>
+                                }
+
                             }
                         </select>
                     </div>
@@ -46,7 +55,7 @@
                             <a asp-action="Index" class="btn btn-danger w-75">Back</a>
                         </div>
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-75" value="Create" />
+                            <input type="submit" class="btn btn-info w-75" value="Confirm" />
                         </div>
                     </div>
                 </div>
@@ -55,4 +64,3 @@
         </div>
     </div>
 </form>
-© 2021 GitHub, Inc.

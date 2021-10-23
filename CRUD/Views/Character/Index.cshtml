@@ -24,7 +24,7 @@
                         Description
                     </th>
                     <th>
-                        Region
+                        Whereabouts
                     </th>
                 </tr>
             </thead>
@@ -44,16 +44,14 @@
                         <td width="4%">
                             <div class="w-100 btn-group" role="group">
                                 <div>
-                                    <a asp-controller="Character" asp-action="Update" class="btn btn-primary mx-1">Update</a>
+                                    <a asp-controller="Character" asp-action="Update" asp-route-Id="@character.Id" class="btn btn-primary mx-1">Update</a>
                                 </div>
-                                
+
                                 <div>
-                                    @using (Html.BeginForm("Delete", "Character", new { id = @character.Id }))
-                                    {
-                                        <input type="submit" class="btn btn-danger mx-1" value="Delete" />
-                                    }
+                                    <form  asp-controller="Character" asp-action="Delete" asp-route-Id="@character.Id">
+                                        <button type="submit" class="btn btn-danger mx-1">Delete</button>
+                                    </form>
                                 </div>
-                                
                             </div>
                         </td>
                     </tr>

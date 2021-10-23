@@ -61,5 +61,36 @@ namespace CRUD.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //GET UPDATE
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Characters.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            var enrichedCharacterData = new CharacterViewModel
+            {
+                Character = obj,
+                Regions = _db.Regions
+            };
+
+            return View(enrichedCharacterData);
+        }
+
+        //POST Update
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(CharacterViewModel obj)
+        {
+            _db.Characters.Update(obj.Character);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
