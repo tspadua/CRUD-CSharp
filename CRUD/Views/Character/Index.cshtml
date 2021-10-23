@@ -19,25 +19,29 @@
         {
             <div class="card" style="width: 286px; height: 20rem; background: #6D2E46; margin: 10px; border-radius: 25px 25px 0px 0">
 
-                <div class="btn-group" role="group">
+                <div class="d-flex justify-content-between">
+                    <div class="btn-group" role="group">
 
-                    <div>
-                        <form asp-controller="Character" asp-action="Delete" asp-route-Id="@character.Id">
-                            <button type="submit" class="btn mx-1" style="width: 50px; height: 50px; border-radius: 100px">
-                                <img class="crudicon" src="~/icons/cruzar.svg" style="width: 30px; height: 30px; padding: 2px;
+                        <div>
+                            <form asp-controller="Character" asp-action="Delete" asp-route-Id="@character.Id">
+                                <button type="submit" class="btn mx-1" style="width: 50px; height: 50px; border-radius: 100px">
+                                    <img class="crudicon" src="~/icons/cruzar.svg" style="width: 30px; height: 30px; padding: 2px;
                                 filter: invert(13%) sepia(5%) saturate(4862%) hue-rotate(263deg) brightness(94%) contrast(85%);" />
-                            </button>
-                        </form>
-                    </div>
+                                </button>
+                            </form>
+                        </div>
 
-                    <div>
-                        <a asp-controller="Character" asp-action="Update" asp-route-Id="@character.Id" class="btn mx-1" style="width: 50px; height: 50px">
-                            <img class="crudicon" src="~/icons/lapis.svg" style="width: 30px; height: 30px; padding: 2px; margin-top: 2px;
+                        <div>
+                            <a asp-controller="Character" asp-action="Update" asp-route-Id="@character.Id" class="btn mx-1" style="width: 50px; height: 50px">
+                                <img class="crudicon" src="~/icons/lapis.svg" style="width: 30px; height: 30px; padding: 2px; margin-top: 2px;
                             filter: invert(13%) sepia(5%) saturate(4862%) hue-rotate(263deg) brightness(94%) contrast(85%);" />
-                        </a>
-                    </div>
+                            </a>
+                        </div>
 
+                    </div>
+                    <h6 class="card-subtitle" style="margin: 5% 5% 0 0; color: #40283A ">@character.Region.Name</h6>
                 </div>
+                
 
                 
                 <div style="height: 220px; width: 286px; margin-left: -1px">
